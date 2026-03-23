@@ -22,7 +22,7 @@
         <!-- Заголовок и выбор устройства -->
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
             <TextBlock Text="Устройство: " Foreground="#FF89DCEB" VerticalAlignment="Center"/>
-            <ComboBox Background="#FF313244" Foreground="#FFCDD6F4"
+            <ComboBox Background="#FF313244" Foreground="Black"
                       Width="220"
                       ItemsSource="{Binding Devices}"
                       SelectedItem="{Binding SelectedDevice}"

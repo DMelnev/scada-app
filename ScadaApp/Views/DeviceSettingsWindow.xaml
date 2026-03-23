@@ -59,7 +59,7 @@
                     <TextBox Style="{StaticResource FieldStyle}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Label Style="{StaticResource LabelStyle}" Content="Тип драйвера"/>
-                    <ComboBox Background="#FF313244" Foreground="#FFCDD6F4"
+                    <ComboBox Background="#FF313244" Foreground="Black"
                               SelectedItem="{Binding DriverType}"
                               Margin="0,2,0,6">
                         <ComboBoxItem>Siemens</ComboBoxItem>
@@ -79,7 +79,7 @@
                     <TextBox Style="{StaticResource FieldStyle}" Text="{Binding Port, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <Label Style="{StaticResource LabelStyle}" Content="Тип CPU"/>
-                    <ComboBox Background="#FF313244" Foreground="#FFCDD6F4"
+                    <ComboBox Background="#FF313244" Foreground="Black"
                               SelectedItem="{Binding CpuType}"
                               Margin="0,2,0,6">
                         <ComboBoxItem>S71200</ComboBoxItem>

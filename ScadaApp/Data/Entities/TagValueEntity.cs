@@ -12,4 +12,6 @@ public class TagValueEntity
 
     /// <summary>Качество значения: "Good", "Bad", "Uncertain"</summary>
     public string Quality { get; set; } = "Good";
+
+    public string DeviceName { get; set; } = "";
 }

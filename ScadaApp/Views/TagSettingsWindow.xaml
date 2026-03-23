@@ -1,0 +1,69 @@
+<Window x:Class="ScadaApp.Views.TagSettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="Настройка тегов" Height="500" Width="800"
+        Background="#FF1E1E2E" WindowStartupLocation="CenterOwner">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="BtnStyle">
+            <Setter Property="Background" Value="#FF313244"/>
+            <Setter Property="Foreground" Value="#FFCDD6F4"/>
+            <Setter Property="BorderBrush" Value="#FF45475A"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Margin="10">
+        <!-- Заголовок и выбор устройства -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,8">
+            <TextBlock Text="Устройство: " Foreground="#FF89DCEB" VerticalAlignment="Center"/>
+            <ComboBox Background="#FF313244" Foreground="#FFCDD6F4"
+                      Width="220"
+                      ItemsSource="{Binding Devices}"
+                      SelectedItem="{Binding SelectedDevice}"
+                      DisplayMemberPath="Name"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,6,0,0">
+            <Button Style="{StaticResource BtnStyle}" Content="+ Добавить тег" Command="{Binding AddTagCommand}"/>
+            <Button Style="{StaticResource BtnStyle}" Content="✕ Удалить" Command="{Binding RemoveTagCommand}"
+                    CommandParameter="{Binding ElementName=TagGrid, Path=SelectedItem}"/>
+            <Button Style="{StaticResource BtnStyle}" Content="Сохранить" Background="#FF1E6340"
+                    IsDefault="True" Click="SaveClick"/>
+            <Button Style="{StaticResource BtnStyle}" Content="Закрыть" IsCancel="True" Click="CloseClick"/>
+        </StackPanel>
+
+        <!-- Таблица тегов -->
+        <DataGrid x:Name="TagGrid"
+                  Background="#FF181825" Foreground="#FFCDD6F4"
+                  BorderBrush="#FF45475A"
+                  GridLinesVisibility="Horizontal"
+                  HorizontalGridLinesBrush="#FF313244"
+                  RowBackground="#FF181825"
+                  AlternatingRowBackground="#FF1E1E2E"
+                  ItemsSource="{Binding Tags}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FF313244"/>
+                    <Setter Property="Foreground" Value="#FF89DCEB"/>
+                    <Setter Property="Padding" Value="8,4"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="160"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn Header="Тип данных" Binding="{Binding DataType}" Width="100"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+                <DataGridCheckBoxColumn Header="Вкл." Binding="{Binding Enabled}" Width="60"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

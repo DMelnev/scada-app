@@ -9,6 +9,7 @@
     <RootNamespace>ScadaApp</RootNamespace>
     <AssemblyName>ScadaApp</AssemblyName>
     <Platforms>x64</Platforms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,0 +1,25 @@
+# Build output
+bin/
+obj/
+*.user
+
+# NuGet packages
+*.nupkg
+.nuget/
+
+# VS files
+.vs/
+*.suo
+*.sln.docstates
+
+# Logs
+logs/
+*.log
+
+# SQLite databases
+*.db
+*.db-shm
+*.db-wal
+
+# Config with secrets (keep template committed, ignore actual)
+# config.json
